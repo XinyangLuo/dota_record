@@ -1,0 +1,12 @@
+name = "dota-record"
+compatibility_date = "2024-12-30"
+pages_build_output_dir = "frontend/dist"
+
+# D1 数据库绑定
+# 首次部署前需要：
+#   1. wrangler d1 create dota-record
+#   2. 把命令输出里的 database_id 粘到下面
+[[d1_databases]]
+binding = "DB"
+database_name = "dota-record"
+database_id = "a397841f-58de-414c-9213-45ceea95c5b0"
