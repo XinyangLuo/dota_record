@@ -74,6 +74,12 @@ router.post('/', (req, res) => {
     return;
   }
 
+  const heroNames = players.map(p => p.hero_name);
+  if (new Set(heroNames).size !== 10) {
+    res.status(400).json({ error: '英雄不能重复' });
+    return;
+  }
+
   const db = getDb();
   let matchId: number;
   try {
@@ -146,6 +152,12 @@ router.put('/:id', (req, res) => {
   const playerIds = players.map(p => p.player_id);
   if (new Set(playerIds).size !== 10) {
     res.status(400).json({ error: '选手不能重复' });
+    return;
+  }
+
+  const heroNames = players.map(p => p.hero_name);
+  if (new Set(heroNames).size !== 10) {
+    res.status(400).json({ error: '英雄不能重复' });
     return;
   }
 

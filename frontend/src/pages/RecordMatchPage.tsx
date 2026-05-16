@@ -234,6 +234,12 @@ export default function RecordMatchPage() {
       return
     }
 
+    const heroNames = allPlayers.map(p => p.hero_name)
+    if (new Set(heroNames).size !== 10) {
+      setError('英雄不能重复')
+      return
+    }
+
     setSubmitting(true)
     try {
       if (editingMatchId !== null) {

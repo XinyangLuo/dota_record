@@ -122,6 +122,10 @@ function validateMatchInput(winner: unknown, players: unknown): string | null {
   if (new Set(ids).size !== 10) {
     return '选手不能重复';
   }
+  const heroes = ps.map(p => p.hero_name);
+  if (new Set(heroes).size !== 10) {
+    return '英雄不能重复';
+  }
   return null;
 }
 
